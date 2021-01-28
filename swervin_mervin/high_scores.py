@@ -34,14 +34,14 @@ class HighScores():
         self.high_scores.reverse()
 
     def __write_high_scores(self):
-        hs    = open(os.path.join("dat", "highscores"), "w")
+        hs    = open(os.path.join("dat", "highscores.dat"), "w")
         jdata = map(lambda hs: [hs[0].strftime("%Y-%m-%d"), hs[1]], self.high_scores)
 
         json.dump(jdata, hs)
         hs.close()
 
     def __read_high_scores(self):
-        hs  = open(os.path.join("dat", "highscores"), "r")
+        hs  = open(os.path.join("dat", "highscores.dat"), "r")
         jhs = map(lambda hs: [dt.datetime.strptime(hs[0], "%Y-%m-%d"), hs[1]], json.load(hs))
 
         hs.close()

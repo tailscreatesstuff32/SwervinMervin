@@ -73,18 +73,8 @@ class Player:
         """Detects and handles player collisions with sprites."""
         if not self.crashed:
             for sp in segment.sprites:
-                if sp.sprite.has_key("collision") and self.__collided_with_sprite(sp):
-                    if sp.is_hooker():
-                        if not sp.hit:
-                            sp.hit = True
-                            self.__hit_hooker()
-                    elif sp.is_bonus():
-                        segment.remove_sprite(sp)
-                        self.__hit_bonus()
-                    elif sp.is_speed_boost():
-                        self.__hit_speed_boost()
-                    else:
-                        self.__hit_world_object()
+                #if sp.sprite.has_key("collision") and self.__collided_with_sprite(sp):
+            
 
                     break
 
@@ -226,17 +216,6 @@ class Player:
 
             u.render_text(sign + str(round(abs(diff), 1)), window, font, s.COLOURS[colour], (10, 40))
 
-    def render_blood(self, window):
-        """Renders a blood splatter if we've killed someone."""
-        b = pygame.image.load(os.path.join("lib", "blood.png"))
-        b.set_alpha(self.blood_alpha)
-
-        x = (s.DIMENSIONS[0] - b.get_size()[0]) / 2
-        y = ((s.DIMENSIONS[1] - b.get_size()[1]) / 2) - 30
- 
-        window.blit(b, (x, y))
-
-        self.blood_alpha -= 1
 
     def accelerate(self):
         """Updates speed at appropriate acceleration level."""
@@ -396,18 +375,7 @@ class Player:
     def __set_checkpoint(self):
         self.last_checkpoint = datetime.datetime.now()
 
-    def __hit_hooker(self):
-        crash_sfx        = pygame.mixer.Sound(os.path.join("lib", "scream.ogg"))
-        splat_sfx        = pygame.mixer.Sound(os.path.join("lib", "blood.ogg"))
-        self.blood_alpha = 255
 
-        # Yeah, I'm a sicko....
-        if self.status == PlayerStatus.alive:
-            self.points += s.POINT_GAIN_PROSTITUTE
-            self.__set_special_text("+%d points!" % s.POINT_GAIN_PROSTITUTE, 2)
-
-        crash_sfx.play()
-        splat_sfx.play()
 
     def __hit_bonus(self):
         if self.status == PlayerStatus.alive:

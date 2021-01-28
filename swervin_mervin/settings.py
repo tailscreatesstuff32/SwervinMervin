@@ -670,24 +670,6 @@ SPRITES           = {"column": {
                        "speed_boost": True,
                        "width": 72,
                        "height": 42},
-                     "hooker1": {
-                       "path": "hooker1.png",
-                       "collision": [0.42, 0.36],
-                       "hooker": True,
-                       "width": 25,
-                       "height": 42},
-                     "hooker2": {
-                       "path": "hooker2.png",
-                       "collision": [0.42, 0.36],
-                       "hooker": True,
-                       "width": 25,
-                       "height": 42},
-                     "hooker3": {
-                       "path": "hooker3.png",
-                       "collision": [0.42, 0.36],
-                       "hooker": True,
-                       "width": 25,
-                       "height": 42},
                      "barrier": {
                        "path": "barrier.png",
                        "collision": [0.05, 0.05],

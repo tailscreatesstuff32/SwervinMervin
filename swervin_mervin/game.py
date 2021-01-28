@@ -222,8 +222,8 @@ class Game:
         p.render(self.window, base_segment)
         p.render_hud(self.window)
 
-        if p.blood_alpha > 0:
-            p.render_blood(self.window)
+        #if p.blood_alpha > 0:
+            #p.render_blood(self.window)
 
         for e in pygame.event.get():
             u.try_quit(e)

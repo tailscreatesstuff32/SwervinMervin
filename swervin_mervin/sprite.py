@@ -13,9 +13,6 @@ class Sprite(wo.WorldObject):
 
         wo.WorldObject.__init__(self)
 
-    def is_hooker(self):
-        return self.sprite.has_key("hooker")
-
     def is_speed_boost(self):
         return self.sprite.has_key("speed_boost")
 
@@ -25,7 +22,5 @@ class Sprite(wo.WorldObject):
     def path(self):
         sprite_name = self.sprite["path"]
 
-        if self.is_hooker() and self.hit:
-            sprite_name = sprite_name.replace(".", "_dead.")
 
         return pygame.image.load(os.path.join("lib", sprite_name))
