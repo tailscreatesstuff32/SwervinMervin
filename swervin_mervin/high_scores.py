@@ -34,7 +34,7 @@ class HighScores():
         self.high_scores.reverse()
 
     def __write_high_scores(self):
-        hs    = open(os.path.join("dat", "highscores,dat"), "w")
+        hs    = open(os.path.join("dat", "highscores.dat"), "w")
         jdata = map(lambda hs: [hs[0].strftime("%Y-%m-%d"), hs[1]], self.high_scores)
 
         json.dump(jdata, hs)
